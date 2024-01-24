@@ -19,17 +19,17 @@ data "onepassword_vault" "vault" {
 }
 
 module "onepass_read_value" {
- source = "./path/to/this/module"
+  source = "./path/to/this/module"
 
- vault_uuid = data.onepassword_vault.vault.uuid
- item       = "your-item-name"
- section    = "your-section-name"
- field      = "your-field-name"
+  vault_uuid = data.onepassword_vault.vault.uuid
+  item       = "your-item-name"
+  section    = "your-section-name"
+  field      = "your-field-name"
 }
 
 output "secret_value" {
- value = module.onepass_read_value.value
- sensitive = true
+  value     = module.onepass_read_value.value
+  sensitive = true
 }
 ```
 

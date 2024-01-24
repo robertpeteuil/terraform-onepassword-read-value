@@ -24,7 +24,8 @@ data "onepassword_vault" "vault" {
 }
 
 module "op_get_secret" {
-  source     = "../../"
+  source     = "github.com/robertpeteuil/terraform-onepassword-read-value?ref=main"
+  
   vault_uuid = data.onepassword_vault.vault.uuid
   item       = local.op_item
   section    = local.op_section

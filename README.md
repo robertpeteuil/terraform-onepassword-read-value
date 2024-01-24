@@ -10,11 +10,11 @@ To use this module, you need to provide the following variables:
 - `item`: The name of the 1Password item containing the secret.
   - ensure this is unique.  The 1password provider will error if there are multiple entries with this name
 - `section`: The section within the item where the secret is stored.
-  - note: 1password UI displays section headings in CAPS, but the underlying value may contain lowercase.
-  - verify the exact value by opening the item in edit view.
+  - verify the exact section name by opening the item in edit view.
+  - note: 1password UI displays section headings in all-CAPS, but the underlying value may contain lowercase.
 - `field`: The field within the section where the secret is stored.
 
-Here's an example of how to use this module:
+### Terraform Example
 
 ``` hcl
 data "onepassword_vault" "vault" {
@@ -36,14 +36,21 @@ output "secret_value" {
 }
 ```
 
-Replace `"your-item-name"`, `"your-section-name"`, and `"your-field-name"` with your actual values.
+Replace `"your-item-name"`, `"your-section-name"`, and `"your-field-name"` with values from the UI as shown below.
 
 After running `terraform apply`, the value of the specified field will be outputted as `secret_value`.
+
+### UI to Variable Mapping
+
+![images/1pass-item-meta-sm.png](images/1pass-item-meta-sm.png)
 
 ## Requirements
 
 - Terraform >= 0.12
 - 1Password Provider >= 1.4
+- 1Password CLI >= 2.23.0
+  - installed and configured to work with local 1Password App
+  - installation guide: <https://developer.1password.com/docs/cli/>
 
 ## Providers
 

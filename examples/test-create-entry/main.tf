@@ -11,7 +11,7 @@ locals {
   op_account = "my.1password.com"
   op_vault   = "Personal"
   # values below are populated into the 1pasword item
-  op_item        = "Example-New"
+  op_item        = "Example-Test"
   op_section     = "Tokens"
   op_field       = "api-token"
   value_username = "test@example.com"

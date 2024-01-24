@@ -10,7 +10,7 @@ terraform {
 locals {
   op_account = "my.1password.com"
   op_vault   = "Personal"
-  op_item    = "Example-New"
+  op_item    = "Example-Test"
   op_section = "Tokens"
   op_field   = "api-token"
 }

@@ -1,4 +1,4 @@
-# OnePass to HCP Terraform Module
+# 1Password Read Value Module
 
 This Terraform module retrieves a specific field from a 1Password item and outputs its value. It uses the 1Password provider to interact with 1Password's API.
 

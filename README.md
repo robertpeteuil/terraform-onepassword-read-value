@@ -22,7 +22,7 @@ data "onepassword_vault" "vault" {
 }
 
 module "onepass_read_value" {
-  source = "./path/to/this/module"
+  source = "github.com/robertpeteuil/terraform-onepassword-read-value?ref=main"
 
   vault_uuid = data.onepassword_vault.vault.uuid
   item       = "your-item-name"

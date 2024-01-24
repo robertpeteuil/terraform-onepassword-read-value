@@ -8,7 +8,11 @@ To use this module, you need to provide the following variables:
 
 - `vault_uuid`: The UUID of the 1Password vault.
 - `item`: The name of the 1Password item containing the secret.
+  - ensure this is unique.  The 1password provider will error if there are multiple entries with this name
 - `section`: The section within the item where the secret is stored.
+  - ensure this value has the correct case
+  - the 1password UI displays section headings in CAPS, but the underlying value may contain lowercase.
+  - edit the item in the 1password UI displays the raw values for sections.
 - `field`: The field within the section where the secret is stored.
 
 Here's an example of how to use this module:

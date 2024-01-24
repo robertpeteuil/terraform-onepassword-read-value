@@ -1,6 +1,6 @@
-# 1Password Read Value Module
+# Terraform Module - 1Password Read Value
 
-This Terraform module retrieves a specific field from a 1Password item and outputs its value. It uses the 1Password provider to interact with 1Password's API.
+This Terraform module retrieves the value for a specific field in a specific section of a 1Password item. This module addresses the challenge of parsing the JSON object returned by the provider directly.  It uses the 1Password provider to interact with the local 1Password App.
 
 ## Usage
 

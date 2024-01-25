@@ -71,6 +71,4 @@ After running `terraform apply`, the value of the specified field will be output
 
 | Name | Description |
 |------|-------------|
-| value | The value of the specified field in the 1Password item |
-
-Please review and let me know if you need any changes or additions.
+| value | The value of the specified field in the 1Password item (sensitive)|

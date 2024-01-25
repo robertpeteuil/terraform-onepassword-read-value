@@ -1,0 +1,25 @@
+# secret mapping for 1password secrets
+# SECRET_NAME: must be unique
+#   item                = 1password item name
+#   section             = 1password section name
+#   field               = 1password field name
+#   field_value         = value to store in field
+#   category (optional) = category of entry (default: login)
+#   url (optional)      = url to store in entry
+#   username (optional) = username to store in entry
+#   password (optional) = password to store in entry
+Secret1:
+  item: "Example-Test-1"
+  section: "Tokens"
+  field: "rw_token"
+  field_value: "11111111"
+Secret2:
+  item: "Example-Test-2"
+  section: "Reference"
+  field: "admin_token"
+  field_value: "AAAAAAAA"
+Secret3:
+  item: "Example-Test-3"
+  section: "Keys"
+  field: "primary"
+  field_value: "ZZZZZZZZ"

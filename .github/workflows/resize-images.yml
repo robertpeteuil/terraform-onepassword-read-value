@@ -1,0 +1,37 @@
+# Description: Resize Images in specified folder
+#
+# required values:
+#   var.IMAGE_DIR_IN      : directory containing source images
+#   var.IMAGE_DIR_OUT     : destination directory for resized images
+#   var.NEW_RESOLUTION    : desired resolution for resized images
+
+name: resize-images
+
+on:
+  workflow_dispatch:
+
+env:
+  IMAGE_DIR_IN: ${{ vars.IMAGE_DIR_IN || 'images/src'}}
+  IMAGE_DIR_OUT: ${{ vars.IMAGE_DIR_OUT || 'images'}}
+  NEW_RESOLUTION: ${{ vars.NEW_RESOLUTION || '600x'}}
+
+jobs:
+  resize-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Image Resizer Action
+      uses: sharadcodes/img-resizer@v1.1
+      with:
+        image-folder: ${{ env.IMAGE_DIR_IN }}
+        new-resolution: ${{ env.NEW_RESOLUTION }}
+        output-folder: ${{ env.IMAGE_DIR_OUT }}
+    - name: Commit image files
+      working-directory: ${{ env.IMAGE_DIR_OUT }}
+      run: | 
+        git config user.email "actions@github.com"
+        git config user.name "release-action"
+        if [[ "$( git status --porcelain)" != "" ]]; then
+          git add -A
+          git commit -m "Updated image files"
+          git push
+        fi

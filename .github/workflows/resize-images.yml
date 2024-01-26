@@ -26,7 +26,7 @@ jobs:
         new-resolution: ${{ env.NEW_RESOLUTION }}
         output-folder: ${{ env.IMAGE_DIR_OUT }}
     - name: Commit image files
-      working-directory: ${{ env.IMAGE_DIR_OUT }}
+      # working-directory: ${{ env.IMAGE_DIR_OUT }}
       run: | 
         git config user.email "actions@github.com"
         git config user.name "release-action"

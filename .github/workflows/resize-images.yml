@@ -28,7 +28,7 @@ jobs:
         new-resolution: ${{ env.NEW_RESOLUTION }}
         output-folder: ${{ env.IMAGE_DIR_OUT }}
     - name: Commit changes
-      uses: EndBug/add-and-commit@v4
+      uses: EndBug/add-and-commit@v9
       with:
         add: 'images/'
         author_name: "github-actions[bot]"

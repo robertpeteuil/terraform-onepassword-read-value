@@ -19,19 +19,24 @@ jobs:
   resize-and-commit:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout Repo
+      uses: actions/checkout@master
     - name: Image Resizer Action
       uses: sharadcodes/img-resizer@v1.1
       with:
         image-folder: ${{ env.IMAGE_DIR_IN }}
         new-resolution: ${{ env.NEW_RESOLUTION }}
         output-folder: ${{ env.IMAGE_DIR_OUT }}
-    - name: Commit image files
-      working-directory: ${{ env.IMAGE_DIR_IN }}
-      run: | 
-        git config user.email "actions@github.com"
-        git config user.name "release-action"
-        if [[ "$( git status --porcelain)" != "" ]]; then
-          git add -A
-          git commit -m "Updated image files"
-          git push
-        fi
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v4
+      with:
+        add: 'images/'
+        author_name: "github-actions[bot]"
+        author_email: "github-actions@users.noreply.github.com"
+        message: |
+          Images Reszied by Github action\n
+          ```
+          ${{steps.resize-images.outputs.images_changed}}
+          ```
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

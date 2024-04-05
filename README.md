@@ -10,8 +10,7 @@ To use this module, you need to provide the following variables:
 - `item`: The name of the 1Password item containing the secret.
   - Must be unique; the 1password provider will error if there are multiple entries with this name in the Vault
 - `section`: The section within the item where the secret is stored.
-  - verify the exact section name by opening the item in edit view.
-  - note: 1password UI displays section headings in all-CAPS, but the underlying value may contain lowercase.
+  - __IMPORTANT: the 1password UI displays section headings in all-CAPS, but the underlying value may contain lowercase. verify the section name capitalization by opening the item in edit view.__
 - `field`: The field within the section where the secret is stored.
 
 ### Terraform Example
